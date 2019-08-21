@@ -1,0 +1,6 @@
+[submodule "PractiaTest.Models"]
+	path = PractiaTest.Models
+	url = https://github.com/Alexia-AT-Digitecnology/PractiaTest.Models.git
+[submodule "PractiaTest.Database"]
+	path = PractiaTest.Database
+	url = https://github.com/Alexia-AT-Digitecnology/PractiaTest.Database.git

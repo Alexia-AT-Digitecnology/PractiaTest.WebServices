@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PractiaTest.WebServices</name>
+    </assembly>
+    <members>
+        <member name="T:PractiaTest.WebServices.Controllers.ClientsController">
+            <summary>
+            Clients controller class
+            </summary>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.ClientsController.GetAll">
+            <summary>
+            Gets all clients
+            </summary>
+            <returns>A list of clients</returns>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.ClientsController.GetById(PractiaTest.Models.Requests.Client.GetById)">
+            <summary>
+            Gets a client by id
+            </summary>
+            <param name="request"> The id of a client for request</param>
+            <returns>A client</returns>
+        </member>
+        <member name="T:PractiaTest.WebServices.Controllers.InvoiceDetailsController">
+            <summary>
+            Invoice Details controller class
+            </summary>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.InvoiceDetailsController.GetAllByInvoiceId(PractiaTest.Models.Requests.InvoiceDetail.GetAllByInvoiceId)">
+            <summary>
+            Gets all by invoice id
+            </summary>
+            <param name="request">The invoice id for request</param>
+            <returns>A list of invoice details</returns>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.InvoiceDetailsController.GetById(PractiaTest.Models.Requests.InvoiceDetail.GetById)">
+            <summary>
+            Gets an incoive detail by id
+            </summary>
+            <param name="request">The id for request</param>
+            <returns>An invoice detail</returns>
+        </member>
+        <member name="T:PractiaTest.WebServices.Controllers.InvoicesController">
+            <summary>
+            Invoices controller class
+            </summary>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.InvoicesController.GetAllByClientId(PractiaTest.Models.Requests.Invoice.GetAllByClientId)">
+            <summary>
+            Gets all by client id
+            </summary>
+            <param name="request">The client id for request</param>
+            <returns> A list of invoices</returns>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.InvoicesController.GetById(PractiaTest.Models.Requests.Invoice.GetById)">
+            <summary>
+            Get an invoice by id
+            </summary>
+            <param name="request">The id for request</param>
+            <returns>An invoice</returns>
+        </member>
+        <member name="T:PractiaTest.WebServices.Controllers.ProductsController">
+            <summary>
+            Products controller class
+            </summary>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.ProductsController.GetById(PractiaTest.Models.Requests.Product.GetById)">
+            <summary>
+            Gets a product by id
+            </summary>
+            <param name="request">The id for request</param>
+            <returns>A product</returns>
+        </member>
+        <member name="T:PractiaTest.WebServices.Helpers.PreferencesManagerOptionsHelper">
+            <summary>
+            Preferences manager options helper class
+            </summary>
+        </member>
+        <member name="F:PractiaTest.WebServices.Helpers.PreferencesManagerOptionsHelper.DatabaseHost">
+            <summary>
+            The database host
+            </summary>
+        </member>
+        <member name="F:PractiaTest.WebServices.Helpers.PreferencesManagerOptionsHelper.DatabaseName">
+            <summary>
+            The database name
+            </summary>
+        </member>
+        <member name="F:PractiaTest.WebServices.Helpers.PreferencesManagerOptionsHelper.DatabasePort">
+            <summary>
+            The database port
+            </summary>
+        </member>
+        <member name="F:PractiaTest.WebServices.Helpers.PreferencesManagerOptionsHelper.DatabaseUser">
+            <summary>
+            The database user
+            </summary>
+        </member>
+        <member name="F:PractiaTest.WebServices.Helpers.PreferencesManagerOptionsHelper.DatabasePassword">
+            <summary>
+            The database password
+            </summary>
+        </member>
+        <member name="T:PractiaTest.WebServices.Program">
+            <summary>
+            Main class
+            </summary>
+        </member>
+        <member name="M:PractiaTest.WebServices.Program.Main(System.String[])">
+            <summary>
+            Main method
+            </summary>
+            <param name="args">The program arguments</param>
+        </member>
+        <member name="M:PractiaTest.WebServices.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Creates the webhost builder
+            </summary>
+            <param name="args">Arguments</param>
+            <returns>The webhost builder</returns>
+        </member>
+        <member name="T:PractiaTest.WebServices.Services.Implementations.DatabaseService">
+            <summary>
+            Database utility class
+            </summary>
+        </member>
+        <member name="M:PractiaTest.WebServices.Services.Implementations.DatabaseService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="loggerFactory">The logger factory to use</param>
+        </member>
+        <member name="M:PractiaTest.WebServices.Services.Implementations.DatabaseService.GetNewContextInstance">
+            <summary>
+            Gets a new DbContext instance
+            </summary>
+            <returns>A new DbContext instance</returns>
+        </member>
+        <member name="T:PractiaTest.WebServices.Services.Interfaces.IDatabaseService">
+            <summary>
+            Database service class
+            </summary>
+        </member>
+        <member name="M:PractiaTest.WebServices.Services.Interfaces.IDatabaseService.GetNewContextInstance">
+            <summary>
+            Gets a new DbContext instance
+            </summary>
+            <returns>A new DbContext instance</returns>
+        </member>
+        <member name="T:PractiaTest.WebServices.Startup">
+            <summary>
+            Startup class
+            </summary>
+        </member>
+        <member name="M:PractiaTest.WebServices.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializer
+            </summary>
+            <param name="configuration">The configuration to use</param>
+            /// <param name="loggerFactory">The logger factory to use</param>
+        </member>
+        <member name="P:PractiaTest.WebServices.Startup.Configuration">
+            <summary>
+            The configuration used
+            </summary>
+        </member>
+        <member name="P:PractiaTest.WebServices.Startup.LoggerFactory">
+            <summary>
+            The logger factory used
+            </summary>
+        </member>
+        <member name="M:PractiaTest.WebServices.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">A service collection</param>
+        </member>
+        <member name="M:PractiaTest.WebServices.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">Application builder to use</param>
+            <param name="env">Environment to use</param>
+        </member>
+    </members>
+</doc>

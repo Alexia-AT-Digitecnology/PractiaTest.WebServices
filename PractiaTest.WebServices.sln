@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PractiaTest.WebServices", "PractiaTest.WebServices\PractiaTest.WebServices.csproj", "{6FA5BDC5-01B9-449F-9087-0920AE124111}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PractiaTest.Database", "..\PractiaTest.Database\PractiaTest.Database.csproj", "{F671F053-7310-4FD5-9CA8-F417E6960A80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PractiaTest.Models", "..\PractiaTest.Models\PractiaTest.Models.csproj", "{429B10B6-1367-428E-A78E-62D17A6148E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FA5BDC5-01B9-449F-9087-0920AE124111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA5BDC5-01B9-449F-9087-0920AE124111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA5BDC5-01B9-449F-9087-0920AE124111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA5BDC5-01B9-449F-9087-0920AE124111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F671F053-7310-4FD5-9CA8-F417E6960A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F671F053-7310-4FD5-9CA8-F417E6960A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F671F053-7310-4FD5-9CA8-F417E6960A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F671F053-7310-4FD5-9CA8-F417E6960A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{429B10B6-1367-428E-A78E-62D17A6148E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{429B10B6-1367-428E-A78E-62D17A6148E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{429B10B6-1367-428E-A78E-62D17A6148E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{429B10B6-1367-428E-A78E-62D17A6148E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
