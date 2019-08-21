@@ -9,17 +9,25 @@
             Clients controller class
             </summary>
         </member>
+        <member name="M:PractiaTest.WebServices.Controllers.ClientsController.#ctor(PractiaTest.WebServices.Services.Interfaces.IDatabaseService,Microsoft.Extensions.Logging.ILogger{PractiaTest.WebServices.Controllers.ClientsController},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="databaseService">The database service injected</param>
+            <param name="logger">The logger injected</param>
+            <param name="configuration">The configuration injected</param>
+        </member>
         <member name="M:PractiaTest.WebServices.Controllers.ClientsController.GetAll">
             <summary>
             Gets all clients
             </summary>
             <returns>A list of clients</returns>
         </member>
-        <member name="M:PractiaTest.WebServices.Controllers.ClientsController.GetById(PractiaTest.Models.Requests.Client.GetById)">
+        <member name="M:PractiaTest.WebServices.Controllers.ClientsController.GetById(System.Int32)">
             <summary>
             Gets a client by id
             </summary>
-            <param name="request"> The id of a client for request</param>
+            <param name="clientId"> The id of a client for request</param>
             <returns>A client</returns>
         </member>
         <member name="T:PractiaTest.WebServices.Controllers.InvoiceDetailsController">
@@ -27,37 +35,46 @@
             Invoice Details controller class
             </summary>
         </member>
-        <member name="M:PractiaTest.WebServices.Controllers.InvoiceDetailsController.GetAllByInvoiceId(PractiaTest.Models.Requests.InvoiceDetail.GetAllByInvoiceId)">
+        <member name="M:PractiaTest.WebServices.Controllers.InvoiceDetailsController.#ctor(PractiaTest.WebServices.Services.Interfaces.IDatabaseService,Microsoft.Extensions.Logging.ILogger{PractiaTest.WebServices.Controllers.InvoiceDetailsController},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="databaseService">The database service injected</param>
+            <param name="logger">The logger injected</param>
+            <param name="configuration">The configuration injected</param>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.InvoiceDetailsController.GetAllByInvoiceId(System.Int32)">
             <summary>
             Gets all by invoice id
             </summary>
-            <param name="request">The invoice id for request</param>
+            <param name="invoiceId">The invoice id for request</param>
             <returns>A list of invoice details</returns>
-        </member>
-        <member name="M:PractiaTest.WebServices.Controllers.InvoiceDetailsController.GetById(PractiaTest.Models.Requests.InvoiceDetail.GetById)">
-            <summary>
-            Gets an incoive detail by id
-            </summary>
-            <param name="request">The id for request</param>
-            <returns>An invoice detail</returns>
         </member>
         <member name="T:PractiaTest.WebServices.Controllers.InvoicesController">
             <summary>
             Invoices controller class
             </summary>
         </member>
-        <member name="M:PractiaTest.WebServices.Controllers.InvoicesController.GetAllByClientId(PractiaTest.Models.Requests.Invoice.GetAllByClientId)">
+        <member name="M:PractiaTest.WebServices.Controllers.InvoicesController.#ctor(PractiaTest.WebServices.Services.Interfaces.IDatabaseService,Microsoft.Extensions.Logging.ILogger{PractiaTest.WebServices.Controllers.InvoicesController},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="databaseService">The database service injected</param>
+            <param name="logger">The logger injected</param>
+            <param name="configuration">The configuration injected</param>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.InvoicesController.GetAllByClientId(System.Int32)">
             <summary>
             Gets all by client id
             </summary>
-            <param name="request">The client id for request</param>
+            <param name="clientId">The client id for request</param>
             <returns> A list of invoices</returns>
         </member>
-        <member name="M:PractiaTest.WebServices.Controllers.InvoicesController.GetById(PractiaTest.Models.Requests.Invoice.GetById)">
+        <member name="M:PractiaTest.WebServices.Controllers.InvoicesController.GetById(System.Int32)">
             <summary>
             Get an invoice by id
             </summary>
-            <param name="request">The id for request</param>
+            <param name="invoiceId">The id for request</param>
             <returns>An invoice</returns>
         </member>
         <member name="T:PractiaTest.WebServices.Controllers.ProductsController">
@@ -65,11 +82,19 @@
             Products controller class
             </summary>
         </member>
-        <member name="M:PractiaTest.WebServices.Controllers.ProductsController.GetById(PractiaTest.Models.Requests.Product.GetById)">
+        <member name="M:PractiaTest.WebServices.Controllers.ProductsController.#ctor(PractiaTest.WebServices.Services.Interfaces.IDatabaseService,Microsoft.Extensions.Logging.ILogger{PractiaTest.WebServices.Controllers.ProductsController},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="databaseService">The database service injected</param>
+            <param name="logger">The logger injected</param>
+            <param name="configuration">The configuration injected</param>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.ProductsController.GetById(System.Int32)">
             <summary>
             Gets a product by id
             </summary>
-            <param name="request">The id for request</param>
+            <param name="productId">The id for request</param>
             <returns>A product</returns>
         </member>
         <member name="T:PractiaTest.WebServices.Helpers.PreferencesManagerOptionsHelper">
