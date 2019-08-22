@@ -54,15 +54,15 @@ namespace PractiaTest.WebServices.Controllers
             try
             {
                 result.Data = await (from invoiceDetail in this._databaseService.GetNewContextInstance().InvoiceDetail
-                    where(invoiceDetail.InvoiceId == invoiceId)
+                    where (invoiceDetail.InvoiceId == invoiceId)
                     select new InvoiceDetail()
                     {
-                     Amount = invoiceDetail.Amount,
-                     InvoiceId = invoiceDetail.InvoiceId,
-                     ProductId = invoiceDetail.ProductId,
-                     ProductName = invoiceDetail.Product.Name,
-                     SellPrice = invoiceDetail.SellPrice,
-                     Total = invoiceDetail.Total
+                        Amount = invoiceDetail.Amount,
+                        InvoiceId = invoiceDetail.InvoiceId,
+                        ProductId = invoiceDetail.ProductId,
+                        ProductName = invoiceDetail.Product.Name,
+                        SellPrice = invoiceDetail.SellPrice,
+                        Total = invoiceDetail.Total
                     }).ToListAsync();
 
                 result.ResultCode = ResultCode.Ok;

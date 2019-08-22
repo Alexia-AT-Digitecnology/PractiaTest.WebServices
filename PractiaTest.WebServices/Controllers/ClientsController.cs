@@ -25,7 +25,7 @@ namespace PractiaTest.WebServices.Controllers
         private readonly IDatabaseService _databaseService;
         private readonly ILogger _logger;
         private readonly IConfiguration _configuration;
-        
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -39,7 +39,7 @@ namespace PractiaTest.WebServices.Controllers
             _logger = logger;
             _configuration = configuration;
         }
-        
+
         /// <summary>
         /// Gets all clients
         /// </summary>
@@ -75,7 +75,7 @@ namespace PractiaTest.WebServices.Controllers
                 result.ResultCode = ResultCode.InternalError;
                 result.ErrorMessage = e.Message;
             }
-            
+
             return result;
         }
 
@@ -95,7 +95,7 @@ namespace PractiaTest.WebServices.Controllers
             try
             {
                 result.Data = await (from client in this._databaseService.GetNewContextInstance().Client
-                    where(client.ClientId == clientId)
+                    where (client.ClientId == clientId)
                     select new Client()
                     {
                         Address = client.Address,
@@ -116,8 +116,66 @@ namespace PractiaTest.WebServices.Controllers
                 result.ResultCode = ResultCode.InternalError;
                 result.ErrorMessage = e.Message;
             }
-            
+
             return result;
+        }
+
+        /// <summary>
+        /// Gets a complete client by id
+        /// </summary>
+        /// <param name="clientId"> The id of a client for request</param>
+        /// <returns>A complete client</returns>
+        [HttpGet]
+        [Route("GetCompleteById")]
+        public async Task<ActionResult<Result<CompleteClient>>> GetCompleteById(int clientId)
+        {
+            Result<CompleteClient> result = new Result<CompleteClient>();
+
+            result.Data = null;
+
+            try
+            {
+                result.Data = await (from client in this._databaseService.GetNewContextInstance().Client
+                    where (client.ClientId == clientId)
+                    select new CompleteClient()
+                    {
+                        Address = client.Address,
+                        BornDate = client.BornDate,
+                        Email = client.Email,
+                        Has10PercentDiscount = HasClient10PercentDiscount(client.ClientId),
+                        Id = client.ClientId,
+                        Name = client.Name,
+                        PhoneNumber = client.PhoneNumber,
+                        Invoices = GetClientInvoices(client.ClientId)
+                    }).FirstOrDefaultAsync();
+
+                result.ResultCode = ResultCode.Ok;
+            }
+            catch (Exception e)
+            {
+                result.Data = null;
+                result.ResultCode = ResultCode.InternalError;
+                result.ErrorMessage = e.Message;
+            }
+
+            return result;
+        }
+
+        private List<Models.Entities.Invoice> GetClientInvoices(int clientId)
+        {
+            List<Models.Entities.Invoice> invoices =
+                (from invoice in this._databaseService.GetNewContextInstance().Invoice
+                    where (invoice.ClientId == clientId)
+                    select new Models.Entities.Invoice()
+                    {
+                        ClientId = invoice.ClientId,
+                        Id = invoice.InvoiceId,
+                        IssueDate = invoice.IssueDate,
+                        Paid = invoice.Paid,
+                        Total = CalculateInvoiceTotal(invoice.InvoiceId)
+                    }).ToList();
+
+            return invoices;
         }
 
         private List<int> GetClientInvoicesIds(int clientId)
@@ -125,7 +183,7 @@ namespace PractiaTest.WebServices.Controllers
             Database.Entities.Client client = this._databaseService.GetNewContextInstance().Client
                 .FirstOrDefault(c => c.ClientId == clientId);
             List<int> invoices = new List<int>();
-            
+
             foreach (Invoice invoice in client.Invoice)
             {
                 invoices.Add(invoice.InvoiceId);
@@ -134,7 +192,7 @@ namespace PractiaTest.WebServices.Controllers
             return invoices;
         }
 
-        private bool HasClient10PercentDiscount(int clientId)
+        private decimal HasClient10PercentDiscount(int clientId)
         {
             List<int> invoiceIds = GetClientInvoicesIds(clientId);
 
@@ -147,8 +205,32 @@ namespace PractiaTest.WebServices.Controllers
             {
                 totalPrice += invoiceDetail.SellPrice - invoiceDetail.Product.UnitPrice;
             }
-                
-            return totalPrice <= 0 ? true : false;
+
+            if (totalPrice > 0)
+            {
+                totalPrice = 0;
+            }
+            else
+            {
+                totalPrice = (Math.Abs(totalPrice) * 10) / 100;
+            }
+
+            return totalPrice;
+        }
+
+        private decimal? CalculateInvoiceTotal(int invoiceId)
+        {
+            Database.Entities.Invoice invoice = this._databaseService.GetNewContextInstance().Invoice
+                .FirstOrDefault(i => i.InvoiceId == invoiceId);
+
+            decimal? total = 0;
+
+            foreach (InvoiceDetail invoiceDetail in invoice.InvoiceDetail)
+            {
+                total += invoiceDetail.Total;
+            }
+
+            return total;
         }
     }
 }

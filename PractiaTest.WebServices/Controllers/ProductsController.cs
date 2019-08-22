@@ -22,21 +22,21 @@ namespace PractiaTest.WebServices.Controllers
         private readonly IDatabaseService _databaseService;
         private readonly ILogger _logger;
         private readonly IConfiguration _configuration;
-        
+
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="databaseService">The database service injected</param>
         /// <param name="logger">The logger injected</param>
         /// <param name="configuration">The configuration injected</param>
-        public ProductsController(IDatabaseService databaseService, ILogger<ProductsController> logger, 
+        public ProductsController(IDatabaseService databaseService, ILogger<ProductsController> logger,
             IConfiguration configuration)
         {
             _databaseService = databaseService;
             _logger = logger;
             _configuration = configuration;
         }
-        
+
         /// <summary>
         /// Gets a product by id
         /// </summary>

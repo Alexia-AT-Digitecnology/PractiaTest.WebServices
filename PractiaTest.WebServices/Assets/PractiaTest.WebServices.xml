@@ -30,6 +30,13 @@
             <param name="clientId"> The id of a client for request</param>
             <returns>A client</returns>
         </member>
+        <member name="M:PractiaTest.WebServices.Controllers.ClientsController.GetCompleteById(System.Int32)">
+            <summary>
+            Gets a complete client by id
+            </summary>
+            <param name="clientId"> The id of a client for request</param>
+            <returns>A complete client</returns>
+        </member>
         <member name="T:PractiaTest.WebServices.Controllers.InvoiceDetailsController">
             <summary>
             Invoice Details controller class
@@ -76,6 +83,13 @@
             </summary>
             <param name="invoiceId">The id for request</param>
             <returns>An invoice</returns>
+        </member>
+        <member name="M:PractiaTest.WebServices.Controllers.InvoicesController.GetCompleteById(System.Int32)">
+            <summary>
+            Get a complete invoice by id
+            </summary>
+            <param name="invoiceId">The id for request</param>
+            <returns>A complete invoice</returns>
         </member>
         <member name="T:PractiaTest.WebServices.Controllers.ProductsController">
             <summary>
