@@ -54,6 +54,17 @@ namespace PractiaTest.WebServices
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
+            services.AddCors(options =>
+            {
+                options.AddPolicy("myCORS",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:5002")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info
@@ -116,6 +127,8 @@ namespace PractiaTest.WebServices
                 });
             }
 
+            app.UseCors("myCORS");
+            
             app.UseMvc();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
